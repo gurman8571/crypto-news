@@ -5,6 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 import { SingleCoin } from "../config/Api";
 import { Cryptostate } from "../Context";
 import { Doughnut } from 'react-chartjs-2';
+import Footer from '../components/Footer'
 import  Coinchart from '../components/Coinchart'
 const CoinPage = () => {
   const { id } = useParams();
@@ -36,7 +37,7 @@ const CoinPage = () => {
   return (
   <div className="h-full bg-gray-700">
   
-<div class="grid grid-cols-5  gap-2">
+<div class="grid grid-cols-5 lg:grid-row gap-2">
   <div class="bg-transparent col-span-5">
    <div className="flex flex-row justify-center">
    <img  className="rounded-full p-3 flex justify-center"src={coin?.image.large} alt="" />
@@ -52,27 +53,33 @@ const CoinPage = () => {
      <article className="flex justify-center p-5 text-white">
      {ReactHtmlParser(coin?.description.en.split(".")[0])}.
      </article>
-    
+     <p className="flex justify-center text-white">  Rank:{coin?.market_cap_rank}</p>
+       
+       <a  className="flex justify-center text-white" href={coin?.links.blockchain_site[0]}>Official site!</a> 
+      <p className="flex justify-center text-white"> current price:{symbol}
+  {(coin?.market_data.current_price[`${lowercurrency}`])}</p> 
   </div>
-<div className="flex justify-center text-white">
+<div className="flex justify-center p-5 text-white">
 
-  Rank:{coin?.market_cap_rank}
+
+
+    
+  
+   
 </div>
-  <div className="flex flex-row justify-center  text-gray-300">
-     <a href={coin?.links.blockchain_site[0]}>Official site!</a> 
-  
-  current price:{symbol}
-  
-  {(coin?.market_data.current_price[`${lowercurrency}`])
   
 
-  }
-</div>
+  
+
   <br />
+  
   <div class="bg-gray-700 col-span-5">
+  <br />
+  <hr  className="p-8 m-8"/>
         <Coinchart coin={coin}/>
   </div>
 </div>
+<Footer/>
   </div>
   );
 };

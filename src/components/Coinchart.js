@@ -41,10 +41,12 @@ export default function Coinchart({coin}) {
 
     ]  
   return (
-<>
+<div
+className="m-8">
 <Line
+
               data={{
-                labels: historicData.map((coin) => {
+                labels: historicData?.map((coin) => {
                   let date = new Date(coin[0]);
                   let time =
                     date.getHours() > 12
@@ -55,21 +57,20 @@ export default function Coinchart({coin}) {
 
                 datasets: [
                   {
-                    data: historicData.map((coin) => coin[1]),
+                    data: historicData?.map((coin) => coin[1]),
                     label: `Price ( Past ${days} Days ) in ${currency}`,
-                    borderColor: "#EEBC1D",
+                    borderColor: "gold",
                   },
                 ],
               }}
               options={{
                 elements: {
                   point: {
-                    radius: 1,
+                    radius: 0.6,
                   },
                 },
               }}
             />
-</>
+</div>
   )
 }
-

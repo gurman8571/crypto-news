@@ -1,11 +1,12 @@
+
 .maincontainer{
 
-    width:80%;
+    width:50%;
     height:40px;
     display:flex;
-   
+  
     justify-content:center;
-    padding:5px;
+
 }
 .maincontainer a{
 padding:12px;

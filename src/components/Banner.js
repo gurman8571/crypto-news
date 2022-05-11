@@ -5,7 +5,7 @@ import Craousel from './Craousel'
 export default function Banner() {
   return (
     
-    <div className="banner ">
+    <div className="banner bg-gray-700 w-screen">
      
     <div className="flex-column">
     <div className=" px-8 pt-20 flex justify-center items-center">

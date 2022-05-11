@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Radio+Canada:wght@500;600&family=Roboto:wght@300&display=swap');
 *{
-  margin: 0;
-  padding: 0;
+   padding:0px;
+   margin:0px;
   box-sizing: border-box;
 scroll-behavior: none;
 
