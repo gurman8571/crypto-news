@@ -64,15 +64,16 @@ setPagenumber(selected);
       <p className="font-bold text-yellow-400 pt-8 pb-4 text-3xl font-extrabold">      Crypto Currency prices 
 </p>
     </div>
-    <div className="search flex justify-center ">
+    <div className="search flex justify-center">
 
 
 <input type="search" name="" id="" 
 onChange={(e)=>setsearchterm(e.target.value)}
 value={searchterm} className="  w-1/2  rounded-md p-2 m-4 bg-transparent border border-solid border-yellow-400 " placeholder="Search for a crypto currency " />
-<button type="submit" onClick={search} className="bg-yellow-400 p-2 rounded-md">search</button>
 
     </div>
+    <div className="flex justify-center">    <button type="submit" onClick={search} className="bg-yellow-400 p-3 shrink rounded-md">search</button>
+</div>
    <div className="flex justify-center items-center">
    <table className="  table-auto bg-gray-700 w-1/2 lg:w-3/4 m-8  lg:p-8 border border-solid" border="1">
       
