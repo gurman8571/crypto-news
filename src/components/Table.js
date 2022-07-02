@@ -27,7 +27,7 @@ useEffect(() => {
   
 getcoins();
 
-}, [currency])
+}, [currency,searchterm])
 
 
 const search=()=>{
@@ -64,6 +64,7 @@ setPagenumber(selected);
       <p className="font-bold text-yellow-400 pt-8 pb-4 text-3xl font-extrabold">      Crypto Currency prices 
 </p>
     </div>
+    
     <div className="search flex justify-center">
 
 
@@ -72,9 +73,14 @@ onChange={(e)=>setsearchterm(e.target.value)}
 value={searchterm} className="  w-1/2  rounded-md p-2 m-4 bg-transparent border border-solid border-yellow-400 " placeholder="Search for a crypto currency " />
 
     </div>
-    <div className="flex justify-center">    <button type="submit" onClick={search} className="bg-yellow-400 p-3 shrink rounded-md">search</button>
+    <div className="flex justify-center">    
+    
+    <button type="submit" onClick={search} className="bg-yellow-400 p-3 shrink rounded-md">search</button>
+    
 </div>
-   <div className="flex justify-center items-center">
+{currents?
+<>
+<div className="flex justify-center items-center">
    <table className="  table-auto bg-gray-700 w-1/2 lg:w-3/4 m-8  lg:p-8 border border-solid" border="1">
       
             <tr>
@@ -101,25 +107,28 @@ return(
  <>
 
   
+
  <tr className="border border-solid  border-gray-500 p-4">
  
 
    
-              <td className="border-t-0 px-6 ml-4 align-middle border-l-0 border-r-0  whitespace-nowrap p-4 m-2 lg:text-xl text-sm lg:flex items-center">
-                <img src={coin.image} className="h-12 w-12  bg-white rounded-full border" alt="..." />
-                
-                  <span className="m-2 lg:ml-16 lg:text-xl text-sm text-middle font-bold text-white"> <Link to={`/Coin/${coin.id}`} >{coin.name} </Link></span></td>
-              <td className="  m-2 lg:pl-20 whitespace-nowrap ">{symbol}{seperate(coin.current_price)}</td>
+ <td className="border-t-0 px-6 ml-4 align-middle border-l-0 border-r-0  whitespace-nowrap p-4 m-2 lg:text-xl text-sm lg:flex items-center">
+   <img src={coin.image} className="h-12 w-12  bg-white rounded-full border" alt="..." />
    
-              {profit?<td className="text-green-400 lg:text-xl text-sm px-2">+{`${coin.price_change_percentage_24h.toFixed(3) }%`}</td> :<td className=" lg:text-xl text-sm text-red-500 px-2">{`${coin.price_change_percentage_24h.toFixed(2) }%`}</td>}
-         
-              
-            
-              <td className="hidden  md:table-cell lg:table-cell lg:pl-16">
+     <span className="m-2 lg:ml-16 lg:text-xl text-sm text-middle font-bold text-white"> <Link to={`/Coin/${coin.id}`} >{coin.name} </Link></span></td>
+ <td className="  m-2 lg:pl-20 whitespace-nowrap ">{symbol}{seperate(coin.current_price)}</td>
+
+ {profit?<td className="text-green-400 lg:text-xl text-sm px-2">+{`${coin.price_change_percentage_24h.toFixed(3) }%`}</td> :<td className=" lg:text-xl text-sm text-red-500 px-2">{`${coin.price_change_percentage_24h.toFixed(2) }%`}</td>}
+
+ 
+
+ <td className="hidden  md:table-cell lg:table-cell lg:pl-16">
 {symbol}{seperate(coin.market_cap.toString().slice(0,-6))}M        
 </td>
- 
-            </tr>
+
+</tr>
+
+
             
  </>
 
@@ -153,6 +162,14 @@ return(
        
        
        /> </div>  
+</>
+
+
+:
+
+<p>No coins to display </p>
+}
+  
     </>
   )
 }

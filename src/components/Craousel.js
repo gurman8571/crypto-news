@@ -5,20 +5,26 @@ import {Cryptostate} from '../Context'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { Link } from 'react-router-dom';
+import Loader from './Loader'
 
 
 export default function Craousel() {
     const [trendy, settrendy] = useState([])
     const {currency,symbol}=Cryptostate();
+    const [loader, setloader] = useState(false)
+
+
+
     const seperate=(x)=>{
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
     }
     const fetchtrendingcoins= async()=>{
+      setloader(true);
       const data=  await axios.get(TrendingCoins(currency));
       settrendy(data.data);
+      setloader(false);
     }
-    console.log(trendy);
     useEffect(() => {
      fetchtrendingcoins();
    
@@ -43,6 +49,10 @@ const items=trendy.map((coin) => {
     else{
         profit=false;
     }
+
+
+
+   
 return(
 <div className="items-center flex justify-center pb-20">
 <Link to={`/Coin/${coin.id}`} className="items-center">
@@ -60,7 +70,14 @@ return(
 )
 
 })
-//const items=[1,2,3,4,5,5];
+if (loader) {
+  return(
+    <>
+    <Loader/>
+    </>
+  )      
+ }
+ else{
   return (
     <div>
         <br /><br />
@@ -78,4 +95,6 @@ return(
       />
     </div>
   )
+ }
+  
 }

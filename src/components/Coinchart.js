@@ -3,6 +3,7 @@ import { Cryptostate } from '../Context'
 import { HistoricalChart } from '../config/Api'
 import { Line } from 'react-chartjs-2';
 import axios from 'axios'
+import Loader from './Loader'
 import { Chart as Chart } from 'chart.js/auto'
 export default function Coinchart({ coin }) {
 
@@ -10,7 +11,7 @@ export default function Coinchart({ coin }) {
 
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
-  //const [is, setis] = useState(coin?.name.toLowerCase())
+   const [loading, setloading] = useState(false);
   const { currency } = Cryptostate();
   //log
 
@@ -19,18 +20,26 @@ export default function Coinchart({ coin }) {
 
 
   const fetchHistoricData = async () => {
-    const { data } = await axios.get(HistoricalChart("bitcoin", days, currency));
-
+    setloading(true);
+    const { data } = await axios.get(HistoricalChart(coin?.id.toLowerCase(), days, currency));
+          
     setHistoricData(data.prices);
+    setloading(false);
   };
 
-  console.warn(historicData);
+  
 
   useEffect(() => {
     fetchHistoricData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [days, currency]);
+  }, [days, currency,coin]);
 
+  if (loading) {
+    return(
+      <Loader/>
+    )
+  }
+  else{
   return (
     <div
       className="m-8 text-white">
@@ -76,4 +85,5 @@ export default function Coinchart({ coin }) {
       </div>
     </div>
   )
+      }
 }
