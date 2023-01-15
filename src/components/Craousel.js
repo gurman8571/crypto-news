@@ -82,7 +82,7 @@ if (loader) {
     <div>
         <br /><br />
 
-          <AliceCarousel
+     <AliceCarousel
       mouseTracking
       infinite
       animationDuration={1500}

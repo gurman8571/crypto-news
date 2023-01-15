@@ -25,10 +25,10 @@ const [showlinks, setshowlinks] = useState(false);
                 <div className="flex space-x-4">
                   {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                   <Link to="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">Home</Link>                 
+                  <Link to="/watchlist" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">Watchlist</Link>                 
                   <Link to="/About" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">about</Link>                 
                  
                  
-                  <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
                 </div>
               </div>
             </div>
