@@ -17,7 +17,7 @@ const [showlinks, setshowlinks] = useState(false);
               </button>
             </div>
             <div className="">
-                 <Link to="/" className="font-extrabold  shadow-sm text-yellow-200 text-2xl cursor-pointer">Crypto News</Link>
+                 <Link to="/" className="font-extrabold  shadow-sm text-yellow-200 text-2xl cursor-pointer">Crypto stats</Link>
               </div>
             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             
@@ -26,7 +26,7 @@ const [showlinks, setshowlinks] = useState(false);
                   {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                   <Link to="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">Home</Link>                 
                   <Link to="/watchlist" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">Watchlist</Link>                 
-                  <Link to="/About" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">about</Link>                 
+                  <Link to="/About" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">About</Link>                 
                  
                  
                 </div>
@@ -77,9 +77,10 @@ const [showlinks, setshowlinks] = useState(false);
             {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
         {showlinks? 
         <>
-        <Link to="/" className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">Home</Link>                 
-                  <Link to="/About" className="text-white hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">About</Link>                 
-                  </>
+       <Link to="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">Home</Link>                 
+                  <Link to="/watchlist" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">Watchlist</Link>                 
+                  <Link to="/About" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" role="menuitem" tabIndex={-1} id="user-menu-item-0">About</Link>                 
+                        </>
                  :
                  <p></p>
                  }

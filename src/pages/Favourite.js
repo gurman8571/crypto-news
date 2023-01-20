@@ -35,6 +35,17 @@ export default function Favourite() {
      return <Loader/>   
     }
 
+
+    if (localStorage.getItem("names") == null) {
+      return(
+        <>
+         <body className="min-h-screen bg-gray-700">
+
+          <p className="flex justify-center text-white text-3xl py-10 text-capitalize "> No items added to favourites </p>
+        </body>
+        </>
+      )
+    }
   return (
     <>
     <body className="min-h-screen bg-gray-700">

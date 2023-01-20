@@ -9,7 +9,7 @@ export default function Banner() {
      
     <div className="flex-column">
     <div className=" px-8 pt-20 flex justify-center items-center">
-        <p className=" shadow-lg text-6xl font-extrabold">Crypto News</p>
+        <p className=" shadow-lg text-6xl font-extrabold">Crypto Stats</p>
 </div>
 <div className="   flex justify-center items-center">
         <p className=" p-2 text-sm capitalize font-light text-gray-300">get info regarding your favourite bitcoin here</p>

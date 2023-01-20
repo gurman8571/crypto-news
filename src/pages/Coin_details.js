@@ -27,11 +27,14 @@ const [volume, setvolume] = useState("")
 const [high, sethigh] = useState("")
 const [logo, setlogo] = useState("")
 
+
+
 const [closeloading, setcloseloading] = useState(false);
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
 
     setCoin(data);
+ 
   setopen(data?.market_data.current_price['usd']);
   sethigh(data?.market_data.high_24h['usd']);
   setlow(data?.market_data.low_24h['usd']);
@@ -52,18 +55,19 @@ const PredictClose =async()=>{
   setcloseloading(true);
   const formdata=new FormData();
   formdata.append("Coin",logo);
-  formdata.append("Open",open);
-  formdata.append("Low",low);
-  formdata.append("High",high);
-  formdata.append("Volume",volume);
+  //formdata.append("Open",open);
+  //formdata.append("Low",low);
+  //formdata.append("High",high);
+  //formdata.append("Volume",volume);
 
 
 
 try{ 
 
-   const val= await axios.post('https://surprisingly-spooky-lizard-realm.wayscript.cloud/?', formdata)
+   const val= await axios.post('https://boldly-frosty-pug-den.wayscript.cloud', formdata)
    setcloseloading(false); 
-   alert(val.data)      
+   alert(`closing price is $${val.data}`)  
+     setcloseloading(false);    
 }
       catch(error){
         setcloseloading(false); 
@@ -145,42 +149,24 @@ console.log(error.message)
         </svg>
             </button>*/} 
             
-            <FacebookShareButton className="mx-1"   url="https://spectacular-sunflower-8aea8d.netlify.app/" qoute={"Hey check this crypto  coin "}
+            <FacebookShareButton className="mx-1"  url={`https://spectacular-sunflower-8aea8d.netlify.app/Coin/${coin?.id}`} qoute={"Hey check this crypto  coin "}
             hashtag="#crypto stats"
+
             >
 
-            <FacebookIcon size={46} round={true} logoFillColor="white"></FacebookIcon>
+            <FacebookIcon size={46}  round={true} logoFillColor="white"></FacebookIcon>
             </FacebookShareButton>
             
             <WhatsappShareButton 
             title={coin?.name}
-            url="https://spectacular-sunflower-8aea8d.netlify.app/">
+            url={`https://spectacular-sunflower-8aea8d.netlify.app/Coin/${coin?.id}`}>
 
               <WhatsappIcon size={46} round={true} logoFillColor="white"></WhatsappIcon>
             </WhatsappShareButton>
               </div>
 <p className="text-yellow-400 font-extrabold">
 
-<div className=" flex">
-  
-  <input type="text" className="  w-1/4  rounded-md p-2 m-4 bg-transparent border border-solid border-yellow-400 "  value={open}/>
 
-  <label className="input  py-1 bg-gray-700" style={{position: 'absolute',left: '19.5rem' }}>
-    Open
-      </label>
-  <input type="text" className="  w-1/4  rounded-md p-2 m-4 bg-transparent border border-solid border-yellow-400 " value={high}/>
-  <label className="input py-1 bg-gray-700" style={{position: 'absolute', left: '34.1rem'}}>
-    High
-      </label>
-  <input type="text" className="  w-1/4  rounded-md p-2 m-4 bg-transparent border border-solid border-yellow-400 "  value={low}/>
-  <label className="input  py-1 bg-gray-700" style={{position: 'absolute', left: '48.8rem'}}>
-    Low
-      </label>
-  <input type="text" className="  w-1/4  rounded-md p-2 m-4 bg-transparent border border-solid border-yellow-400 "  value={volume}/>
-  <label className="input bg-gray-700  py-1" style={{position: 'absolute', left: '63.4rem'}}>
-  Volume
-      </label>
-       </div>
        
 </p>
 <div><button className="btn bg-yellow-400 rounded  lg:py-2 lg:px-4 md:px-4 md:py-4 p-2 pointer-cursor border-2 text-white"
