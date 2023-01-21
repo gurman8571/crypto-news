@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 import ReactPaginate from 'react-paginate';
 export default function Table() {
 
-  const [coins, setcoins] = useState([]);
+const [coins, setcoins] = useState([]);
 const {currency,symbol}=Cryptostate();
 const [searchterm, setsearchterm] = useState("");
 //const [loading, setloading] = useState(false)
@@ -51,7 +51,7 @@ const pages= Math.ceil(number);
 
 //get currpost 
 const pagevisited=Pagenumber*postperpage;
-
+//
 const currents=coins.slice(pagevisited, pagevisited+postperpage)
 const changePage=({selected})=>{
 
@@ -70,7 +70,7 @@ setPagenumber(selected);
 
 <input type="search" name="" id="" 
 onChange={(e)=>setsearchterm(e.target.value)}
-value={searchterm} className="  w-1/2  rounded-md p-2 m-4 bg-transparent border border-solid border-yellow-400 " placeholder="Search for a crypto currency " />
+value={searchterm} className="w-1/2  rounded-md p-2 m-4 bg-transparent border border-solid border-yellow-400 " placeholder="Search for a crypto currency " />
 
     </div>
     <div className="flex justify-center">    
@@ -155,13 +155,7 @@ return(
        containerClassName={"maincontainer"}
        previousLinkClassName={"previousBttn"}
        nextLinkClassName={"nextBttn"}
-       disabledClassName={"PaginationDisabled"}
-
-
-
-       
-       
-       /> </div>  
+       disabledClassName={"PaginationDisabled"}       /> </div>  
 </>
 
 

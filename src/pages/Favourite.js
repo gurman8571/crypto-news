@@ -55,13 +55,12 @@ export default function Favourite() {
    
 
 <div className="flex justify-center items-center">
-   <table className="  table-auto bg-gray-700 w-1/2 lg:w-3/4 m-8  lg:p-8 border border-solid" border="1">
+   <table className="  table-auto bg-gray-700 w-1/2 lg:w-3/4 m-8   border border-solid" border="1">
       
             <tr>
-              <th className="px-0 lg:px-2 lg:m-2 font-extrabold text-white py-3  text-sm md:text-md lg:text-xl uppercase  font-semibold bg-yellow-500 text-white border-yellow-700">Name</th>
-              <th className="px-0 lg:px-2 lg:m-2 font-extrabold text-white py-3  text-sm md:text-md lg:text-xl uppercase font-semibold  bg-yellow-500 text-white border-yellow-700">Symbol</th>
-              <th className="px-0 lg:px-2 lg:m-2 font-extrabold text-white py-3  text-sm md:text-md lg:text-xl uppercase font-semibold  bg-yellow-500 text-white border-yellow-700">24h rise</th>
-              <th className="hidden  md:table-cell lg:table-cell   px-0 lg:px-2 lg:m-2 font-extrabold text-white py-3  text-xs md:text-md lg:text-xl uppercase font-semibold  bg-yellow-500 text-white border-yellow-700">Actions</th>
+              <th className="px-0  font-extrabold text-white py-3  text-sm md:text-md lg:text-xl uppercase  font-semibold bg-yellow-500 text-white border-yellow-700">Symbol</th>
+              <th className="px-0  font-extrabold text-white py-3  text-sm md:text-md lg:text-xl uppercase font-semibold  bg-yellow-500 text-white border-yellow-700">Name</th>
+               <th className="hidden  md:table-cell lg:table-cell   px-0 lg:px-2 lg:m-2 font-extrabold text-white py-3  text-xs md:text-md lg:text-xl uppercase font-semibold  bg-yellow-500 text-white border-yellow-700">Actions</th>
             </tr>
           
           <tbody>
@@ -74,11 +73,11 @@ names.map((coin,i)=>{
         <>
         <tr className="border border-solid  border-gray-500 p-4">
 
-         <td className="border-t-0 px-6 ml-4 align-middle border-l-0 border-r-0  whitespace-nowrap p-4 m-2 lg:text-xl text-sm lg:flex items-center">
+         <td className="border-t-0  ml-4 align-middle border-l-0 border-r-0  whitespace-nowrap p-4 m-2 lg:text-xl text-sm lg:flex items-center">
    <img src={coin.substring(coin.indexOf(":")+1)} className="h-12 w-12  bg-white rounded-full border" alt="..." />
    </td>
      <td className="m-2 lg:ml-16 lg:text-xl text-sm text-middle font-bold text-white">  {coin.substring(0, coin.indexOf(":"))}</td>
-      <td></td>
+      
       <td className="flex px-4">
 <button onClick={()=>removefav(i)}><svg
   xmlns="http://www.w3.org/2000/svg"

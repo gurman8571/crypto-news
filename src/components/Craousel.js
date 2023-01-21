@@ -17,7 +17,6 @@ export default function Craousel() {
 
     const seperate=(x)=>{
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
     }
     const fetchtrendingcoins= async()=>{
       setloader(true);
@@ -27,9 +26,8 @@ export default function Craousel() {
     }
     useEffect(() => {
      fetchtrendingcoins();
-   
-  
     }, [currency])
+
     const responsive={
         0: {
             items: 2,
@@ -50,7 +48,7 @@ const items=trendy.map((coin) => {
         profit=false;
     }
 
-
+  
 
    
 return(
