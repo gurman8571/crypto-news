@@ -39,11 +39,9 @@ const [closeloading, setcloseloading] = useState(false);
   sethigh(data?.market_data.high_24h['usd']);
   setlow(data?.market_data.low_24h['usd']);
   setvolume(data?.market_data.total_volume['usd']);
- 
-
-    //setlogo(data?.symbol)
-    setlogo(data?.symbol.toUpperCase())
-    setlowercurrency(currency.toLowerCase());
+  //setlogo(data?.symbol)
+  setlogo(data?.symbol.toUpperCase())
+  setlowercurrency(currency.toLowerCase());
   };
 
   console.log(coin);
@@ -59,9 +57,6 @@ const PredictClose =async()=>{
   //formdata.append("Low",low);
   //formdata.append("High",high);
   //formdata.append("Volume",volume);
-
-
-
 try{ 
 
    const val= await axios.post('https://boldly-frosty-pug-den.wayscript.cloud', formdata)
@@ -78,7 +73,6 @@ console.log(error.message)
       }
   const seperate = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
   }
  const  AddToFavourite=(coin,image)=>{
   if (localStorage.getItem("names")== null) {

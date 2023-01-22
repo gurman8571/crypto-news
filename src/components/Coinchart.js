@@ -8,17 +8,13 @@ import { Chart as Chart } from 'chart.js/auto'
 export default function Coinchart({ coin }) {
 
   //alert(coin.id);
-
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
    const [loading, setloading] = useState(false);
   const { currency } = Cryptostate();
+  
   //log
-
-
-
-
-
+  
   const fetchHistoricData = async () => {
     setloading(true);
     const { data } = await axios.get(HistoricalChart(coin?.id.toLowerCase(), days, currency));

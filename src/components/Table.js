@@ -71,13 +71,14 @@ setPagenumber(selected);
 <input type="search" name="" id="" 
 onChange={(e)=>setsearchterm(e.target.value)}
 value={searchterm} className="w-1/2  rounded-md p-2 m-4 bg-transparent border border-solid border-yellow-400 " placeholder="Search for a crypto currency " />
+</div>
 
-    </div>
     <div className="flex justify-center">    
     
     <button type="submit" onClick={search} className="bg-yellow-400 p-3 shrink rounded-md">search</button>
     
 </div>
+
 {currents?
 <>
 <div className="flex justify-center items-center">

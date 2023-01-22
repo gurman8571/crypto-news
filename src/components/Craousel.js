@@ -46,11 +46,7 @@ const items=trendy.map((coin) => {
     }
     else{
         profit=false;
-    }
-
-  
-
-   
+    } 
 return(
 <div className="items-center flex justify-center pb-20">
 <Link to={`/Coin/${coin.id}`} className="items-center">
@@ -68,6 +64,8 @@ return(
 )
 
 })
+
+
 if (loader) {
   return(
     <>
