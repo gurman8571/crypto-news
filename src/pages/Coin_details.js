@@ -13,7 +13,8 @@ import {
 
   import {  WhatsappShareButton} from "react-share";
 import {WhatsappIcon} from "react-share";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CoinPage = () => {
   const { id } = useParams();
@@ -26,10 +27,14 @@ const [low, setlow] = useState("")
 const [volume, setvolume] = useState("")
 const [high, sethigh] = useState("")
 const [logo, setlogo] = useState("")
+const [added, setadded] = useState(false);
 
 
 
 const [closeloading, setcloseloading] = useState(false);
+
+const notify = () => toast.success("Added to favourite!");
+
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
 
@@ -84,15 +89,20 @@ console.log(error.message)
   old_data.push(`${coin}:${image}`);
 
   localStorage.setItem("names",JSON.stringify(old_data));
+ setadded(true);
  
-  
+  notify();
+
  }
 
 
 
   return (
+  
+    
     <div className="h-full bg-gray-700">
-
+    <ToastContainer theme="dark" />
+  
       <div class="grid grid-cols-5 lg:grid-row gap-2">
         <div class="bg-transparent col-span-5">
           <div className="flex flex-row justify-center">
@@ -133,7 +143,7 @@ console.log(error.message)
               {coin?.market_data.market_cap[`${lowercurrency}`].toString().slice(0, -6)
               }M</p>
 
-              <button className="btn bg-yellow-400  mb-1 lg:py-2 lg:px-4 md:px-4 md:py-4 p-2 pointer-cursor border-2 text-white" onClick={()=>AddToFavourite(coin?.name,coin?.image.small)} >Add to watchlist</button>
+              <button disabled={ added?true:false} className={added?"btn bg-gray-400  mb-1 lg:py-2 lg:px-4 md:px-4 md:py-4 p-2 pointer-cursor border-2 text-white" :"btn bg-yellow-400  mb-1 lg:py-2 lg:px-4 md:px-4 md:py-4 p-2 pointer-cursor border-2 text-white"} onClick={()=>AddToFavourite(coin?.name,coin?.image.small)} >{added ?"Added":"Add to watchlist"}</button>
 
               <div className=" flex justify-evenly">
 
